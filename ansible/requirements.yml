@@ -1,0 +1,24 @@
+- src: https://github.com/cloudalchemy/ansible-prometheus.git
+  version: master
+  scm: git
+  name: cloudalchemy-prometheus
+
+- src: https://github.com/cloudalchemy/ansible-grafana.git
+  version: master
+  scm: git
+  name: cloudalchemy-grafana
+
+- src: https://github.com/sansible/kafka.git
+  version: master
+  scm: git
+  name: sansible.kafka
+
+- src: https://github.com/sansible/zookeeper.git
+  version: master
+  scm: git
+  name: sansible.zookeeper
+
+- src: https://github.com/geerlingguy/ansible-role-docker.git
+  version: master
+  scm: git
+  name: geerlingguy.docker

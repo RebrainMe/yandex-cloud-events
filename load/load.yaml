@@ -1,0 +1,13 @@
+overload:
+  enabled: true
+  package: yandextank.plugins.DataUploader
+  token_file: "token.txt"
+phantom:
+  address: events.kis.im
+  load_profile:
+    load_type: rps
+    schedule: const(15000, 3m)
+console:
+  enabled: true
+telegraf:
+  enabled: false

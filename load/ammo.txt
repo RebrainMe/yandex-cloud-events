@@ -1,0 +1,9 @@
+132 json
+POST /post HTTP/1.1
+Host: events.kis.im
+User-Agent: tank
+Accept: */*
+Connection: Close
+Content-Length: 16
+
+{"key1":"data1"}

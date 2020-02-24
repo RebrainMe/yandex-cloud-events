@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - cloudalchemy-prometheus
+    - cloudalchemy-grafana
+  vars:
+    prometheus_global:
+      scrape_interval: 2s
+      scrape_timeout: 2s
+      evaluation_interval: 10s
+    grafana_security:
+      admin_user: admin
+      admin_password: "Password"
+
+

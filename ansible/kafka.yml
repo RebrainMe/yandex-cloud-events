@@ -1,0 +1,20 @@
+---
+- hosts: all
+
+  pre_tasks:
+    - name: Update apt
+      become: yes
+      apt:
+        cache_valid_time: 1800
+        update_cache: yes
+
+  roles:
+    - name: sansible.zookeeper
+    - name: sansible.kafka
+
+  vars:
+    sansible_kafka_server_properties:
+      broker.id: 1
+      listeners: "PLAINTEXT://0.0.0.0:{{ sansible_kafka_port }}"
+      advertised.listeners: "PLAINTEXT://{{ ansible_default_ipv4['address'] }}:{{ sansible_kafka_port }}"
+      log.dirs: /home/kafka/data

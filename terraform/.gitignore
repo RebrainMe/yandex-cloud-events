@@ -1,0 +1,6 @@
+*swp
+private.auto.tfvars
+vars.auto.tfvars
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
