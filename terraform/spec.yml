@@ -1,7 +1,7 @@
 spec:
   containers:
     - name: api
-      image: cr.yandex/crpvo0g5jbomk1eua5e7/api:v1
+      image: vozerov/events-api:v1
       command:
         - /app/app
       args:

@@ -1,7 +1,6 @@
 data "yandex_lb_target_group" "events_api_tg" {
-  name = "events-api-tg"
+  name = yandex_compute_instance_group.events_api_ig.load_balancer[0].target_group_name
 }
-
 
 resource "yandex_lb_network_load_balancer" "events_api_lb" {
   name = "events-api-lb"
