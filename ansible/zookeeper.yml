@@ -1,0 +1,5 @@
+- hosts: zookeeper
+  become: true
+  gather_facts: true
+  roles:
+    - sansible.zookeeper

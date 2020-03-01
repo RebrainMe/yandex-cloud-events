@@ -1,1 +1,1 @@
-POST||/post||json||{"key1":"data1"}
+POST||/post/sqs||json||{"key1":"data1"}

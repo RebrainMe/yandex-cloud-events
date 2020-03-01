@@ -16,15 +16,6 @@ resource "cloudflare_record" "build" {
   proxied = false
 }
 
-resource "cloudflare_record" "kafka" {
-  zone_id = var.cf_zone_id
-  name    = "kafka"
-  value   = yandex_compute_instance.kafka.network_interface.0.nat_ip_address
-  type    = "A"
-  ttl     = 300
-  proxied = false
-}
-
 resource "cloudflare_record" "events" {
   zone_id = var.cf_zone_id
   name    = "events"

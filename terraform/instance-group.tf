@@ -26,15 +26,21 @@ resource "yandex_compute_instance_group" "events_api_ig" {
     }
 
     metadata = {
-      docker-container-declaration = file("spec.yml")
+      docker-container-declaration = templatefile("${path.module}/templates/instance-spec.yml.tpl", { kafka_uri = join(",", formatlist("%s:9092", yandex_compute_instance.kafka[*].network_interface.0.ip_address)), amqp_uri = "amqp://admin:admin@${yandex_compute_instance.rabbitmq[0].network_interface.0.ip_address}:5672/" })
       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
     }
     service_account_id = yandex_iam_service_account.docker.id
   }
 
   scale_policy {
-    fixed_scale {
-      size = 3
+    auto_scale {
+      initial_size = 3
+      measurement_duration = 60
+      cpu_utilization_target = 60
+      min_zone_size = 1
+      max_size = 6
+      warmup_duration = 60
+      stabilization_duration = 180
     }
   }
 

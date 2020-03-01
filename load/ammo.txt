@@ -1,5 +1,5 @@
-132 json
-POST /post HTTP/1.1
+136 json
+POST /post/sqs HTTP/1.1
 Host: events.kis.im
 User-Agent: tank
 Accept: */*

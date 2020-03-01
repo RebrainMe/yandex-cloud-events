@@ -22,3 +22,11 @@
   version: master
   scm: git
   name: geerlingguy.docker
+
+- src: https://github.com/anthemengineering/ansible-role-rabbitmq.git
+  version: master
+  scm: git
+  name: anthemengineering.ansible-role-rabbitmq
+
+
+
