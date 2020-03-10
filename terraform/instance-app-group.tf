@@ -26,7 +26,7 @@ resource "yandex_compute_instance_group" "events_api_ig" {
     }
 
     metadata = {
-      docker-container-declaration = templatefile("${path.module}/templates/instance-spec.yml.tpl", { kafka_uri = join(",", formatlist("%s:9092", yandex_compute_instance.kafka[*].network_interface.0.ip_address)), amqp_uri = "amqp://admin:admin@${yandex_compute_instance.rabbitmq[0].network_interface.0.ip_address}:5672/" })
+      docker-container-declaration = templatefile("${path.module}/templates/instance_app_spec.yml.tpl", { kafka_uri = join(",", formatlist("%s:9092", yandex_compute_instance.kafka[*].network_interface.0.ip_address)), amqp_uri = "amqp://admin:admin@${yandex_compute_instance.rabbitmq[0].network_interface.0.ip_address}:5672/" })
       ssh-keys = "ubuntu:${file("~/.ssh/id_rsa.pub")}"
     }
     service_account_id = yandex_iam_service_account.docker.id
@@ -49,10 +49,10 @@ resource "yandex_compute_instance_group" "events_api_ig" {
   }
 
   deploy_policy {
-    max_unavailable = 1
-    max_creating    = 1
-    max_expansion   = 1
-    max_deleting    = 1
+    max_unavailable = 2
+    max_creating    = 3
+    max_expansion   = 3
+    max_deleting    = 3
   }
 
   load_balancer {

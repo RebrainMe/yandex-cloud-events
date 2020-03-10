@@ -10,8 +10,8 @@ spec:
         - -amqp=${amqp_uri}
         - -enable-amqp
         - -sqs-uri=https://message-queue.api.cloud.yandex.net/b1gv67ihgfu3bpt24o0q/dj6000000000m4t607bu/load
-        - -sqs-id=XMcaQIBiuTRNv4k90ohb
-        - -sqs-secret=XX1oQX3CBODKeRXNKV3luP-p0DcsFGOiMVTkoE7I
+        - -sqs-id=veXDMRkg4LqWsmMm1Kes
+        - -sqs-secret=H09WgMAqp-VyxIxPFHnd_Py2azsw5U36sv6INs-K
         - -enable-sqs
       securityContext:
         privileged: false

@@ -27,9 +27,3 @@ resource "yandex_lb_network_load_balancer" "events_api_lb" {
   }
 }
 
-output "ls" {
-  value = [
-    for v in yandex_lb_network_load_balancer.events_api_lb.listener:
-    v.external_address_spec.0.address if v.name == "events-api-listener"
-  ][0]
-}

@@ -1,0 +1,1 @@
+CREATE TABLE events.events ON CLUSTER '{cluster}' (dt Date DEFAULT toDate(ts), ts DateTime, gender String, age Integer, path String, browser String, os String) ENGINE = Distributed('{cluster}', events, events_local, rand())
