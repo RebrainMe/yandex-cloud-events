@@ -1,0 +1,9 @@
+spec:
+  containers:
+    - name: consul
+      image: consul
+      securityContext:
+        privileged: false
+      tty: false
+      stdin: false
+      restartPolicy: Always
