@@ -1,9 +1,4 @@
 # Variables
-variable "domain" {
-  type = string
-  description = "Root domain to create records for machines and services"
-}
-
 variable "ansible_workdir" {
   type = string
   description = "Path to Ansible workdir where provisioner tasks are located (i.e. ../ansible)"
@@ -56,4 +51,3 @@ provider "cloudflare" {
   email   = var.cf_email
   api_key = var.cf_token
 }
-
