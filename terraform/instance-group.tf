@@ -33,8 +33,14 @@ resource "yandex_compute_instance_group" "events_api_ig" {
   }
 
   scale_policy {
-    fixed_scale {
-      size = 3
+    auto_scale {
+      initial_size = 3
+      measurement_duration = 60
+      cpu_utilization_target = 60
+      min_zone_size = 1
+      max_size = 6
+      warmup_duration = 60
+      stabilization_duration = 180
     }
   }
 
